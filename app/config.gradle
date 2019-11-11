@@ -1,0 +1,8 @@
+ext{
+    //App版本号
+    appVersionCode = 1
+    //App版本名字
+    appVersionName = "0.0.1"
+    //导航栏
+    navigationVersion = "2.1.0"
+}
