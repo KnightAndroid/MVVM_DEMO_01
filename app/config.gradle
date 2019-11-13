@@ -5,4 +5,6 @@ ext{
     appVersionName = "0.0.1"
     //导航栏
     navigationVersion = "2.1.0"
+    //fragment
+    fragmentVersion = "1.1.0"
 }

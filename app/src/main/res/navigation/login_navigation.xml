@@ -3,13 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_navigation"
-    app:startDestination="@id/welcome">
+    app:startDestination="@id/welcome"
+    tools:ignore="UnusedNavigation">
 
+    <!--注册界面 -->
     <fragment
         android:id="@+id/login"
         android:name="com.knight.mvvm_project_01.ui.fragment.login.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="layout/"
+        tools:layout="@layout/login_fragment"
         />
+
+    <fragment
+        android:id="@+id/welcome"
+        android:name="com.knight.mvvm_project_01.ui.fragment.login.WelcomeFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/welcome_fragment">
+
+        <action
+            android:id="@+id/action_welcome_to_login"
+            app:destination="@id/login"/>
+
+        <action
+            android:id="@+id/action_welcome_to_register"
+            app:enterAnim="@anim/common_slide_in_right"
+            app:exitAnim="@anim/common_slide_out_left"
+            app:popEnterAnim="@anim/common_slide_in_left"
+            app:popExitAnim="@anim/common_slide_out_right"
+            app:destination="@id/register"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/register"
+        android:name="com.knight.mvvm_project_01.ui.fragment.login.RegisterFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/register_fragment">
+
+
+        <argument
+            android:name="EMATL"
+            android:defaultValue="2019@qq.com"
+            app:argType="string"/>
+
+
+
+
+    </fragment>
 
 </navigation>
