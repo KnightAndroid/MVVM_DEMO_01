@@ -20,6 +20,11 @@
         android:label="LoginFragment"
         tools:layout="@layout/welcome_fragment">
 
+        <!--app:destination 调整完成到达的fragment的id
+            app:popupUpTo 将fragment从栈中弹出，直到某个Id的fragment
+        -->
+
+
         <action
             android:id="@+id/action_welcome_to_login"
             app:destination="@id/login"/>
@@ -40,9 +45,14 @@
         android:label="LoginFragment"
         tools:layout="@layout/register_fragment">
 
+        <!--
+           android:name 标签名字
+           app:argType 标签的类型
+           android:defaultValue 默认值
 
+         -->
         <argument
-            android:name="EMATL"
+            android:name="EMAIL"
             android:defaultValue="2019@qq.com"
             app:argType="string"/>
 

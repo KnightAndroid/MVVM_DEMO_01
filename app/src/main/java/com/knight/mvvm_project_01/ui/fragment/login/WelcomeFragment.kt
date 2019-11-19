@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.knight.mvvm_project_01.R
 import com.knight.mvvm_project_01.common.BaseConstant
-import com.knight.mvvm_project_01.utils.AppPrefsUtils
 
 
 /**
@@ -52,8 +51,9 @@ class WelcomeFragment : Fragment() {
                 }
             }
 
-            val name = AppPrefsUtils.getString(BaseConstant.SP_USER_NAME)
-            // Navigation 传递参数
+           // val name = AppPrefsUtils.getString(BaseConstant.SP_USER_NAME)
+            val name = "knight"
+            // Navigation 传递参数 通过bundle
             val bundle = Bundle()
             bundle.putString(BaseConstant.ARGS_NAME,name)
             findNavController().navigate(R.id.login,bundle,navOption)
@@ -63,7 +63,7 @@ class WelcomeFragment : Fragment() {
         btnRegister.setOnClickListener{
             //利用SafeArgs传递参数
             val action = WelcomeFragmentDirections.actionWelcomeToRegister()
-                .setEMATL("TeaOf1994@Gamil.com")
+                .setEMAIL("TeaOf1994@Gamil.com")
             findNavController().navigate(action)
 
         }
