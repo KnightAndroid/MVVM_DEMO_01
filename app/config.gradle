@@ -7,4 +7,6 @@ ext{
     navigationVersion = "2.1.0"
     //fragment
     fragmentVersion = "1.1.0"
+    //lottieVersion
+    lottieVersion = '2.7.0'
 }

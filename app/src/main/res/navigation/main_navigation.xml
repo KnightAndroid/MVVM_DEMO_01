@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/infoFragment">
+
+
+
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.knight.mvvm_project_01.ui.fragment.main.ShoeFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/shoe_fragment"/>
+
+
+    <fragment
+        android:id="@+id/marketFragment"
+        android:name="com.knight.mvvm_project_01.ui.fragment.main.FavouriteFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/favourite_fragment">
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/meFragment"
+        android:name="com.knight.mvvm_project_01.ui.fragment.main.MeFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/me_fragment"
+        />
+
 
 </navigation>
