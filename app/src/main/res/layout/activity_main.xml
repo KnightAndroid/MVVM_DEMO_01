@@ -59,13 +59,33 @@
         android:layout_marginBottom="10dp"
         android:layout_weight="1"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bnv_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/white"-->
+<!--        app:itemIconTint="@drawable/main_bottom_color_selector"-->
+<!--        app:itemTextColor="@drawable/main_bottom_color_selector"-->
+<!--        app:menu="@menu/menu_main"-->
+
+<!--        />-->
+    <cn.onestravel.one.navigation.view.OneBottomNavigationBar
         android:id="@+id/bnv_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@color/white"
-        app:itemIconTint="@drawable/main_bottom_color_selector"
-        app:itemTextColor="@drawable/main_bottom_color_selector"
-        app:menu="@menu/menu_main"
-        />
+        app:oneItemTextColor="@drawable/main_bottom_color_selector"
+        app:oneMenu="@menu/menu_main"
+        app:oneFloatingEnable="true"
+        app:oneFloatingUp="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        app:oneItemTopLineColor="@color/transpant"
+
+    >
+
+    </cn.onestravel.one.navigation.view.OneBottomNavigationBar>
+
+
+
 </LinearLayout>

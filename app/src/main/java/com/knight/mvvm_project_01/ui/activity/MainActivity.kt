@@ -1,5 +1,6 @@
 package com.knight.mvvm_project_01.ui.activity
 
+
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -9,13 +10,14 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
 import com.knight.mvvm_project_01.R
 
 class MainActivity : AppCompatActivity() {
 
 
 
-    lateinit var bottomNavigationView:BottomNavigationView
+//    lateinit var bottomNavigationView:BottomNavigationView
     lateinit var mToolbar:Toolbar
     lateinit var mCamera:ImageView
 
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
         val navController = host.navController
         initWidget()
-        initBottomNavgationView(bottomNavigationView,navController)
+//        initBottomNavgationView(bottomNavigationView,navController)
     }
 
 
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun initBottomNavgationView(bottomNavigationView: BottomNavigationView,navController: NavController){
-     bottomNavigationView.setupWithNavController(navController)
+        bottomNavigationView.setupWithNavController(navController)
         navController.addOnDestinationChangedListener{
             controller, destination, arguments ->
             when(destination.id){
@@ -46,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initWidget(){
-        bottomNavigationView = findViewById(R.id.bnv_view)
+       // bottomNavigationView = findViewById(R.id.bnv_view)
         mToolbar = findViewById(R.id.toolbar)
         mCamera = findViewById(R.id.iv_camera)
         mCamera.setOnClickListener{

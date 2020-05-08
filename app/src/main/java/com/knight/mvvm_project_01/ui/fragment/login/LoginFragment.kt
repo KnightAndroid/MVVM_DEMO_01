@@ -31,6 +31,23 @@ class LoginFragment: Fragment() {
         var data = arguments?.getString(BaseConstant.ARGS_NAME) ?:"null"
         et_account = rootView.findViewById(R.id.et_account)
         et_account.setText(data)
+
+        //?
+        //列表可以赋值为null
+        val nameList :MutableList<String> ? = null
+        val size = nameList?.size?:0
+
+
+        //?.
+        //nameList?.size
+        // 1)====> nameList != null ---> nameList.size()
+        // 2)====> nameList == null ---> null
+
+        //?:
+        //(nameList?.size)?:0
+        //1) nameList?.size != null ---> nameList.size()
+        //2) nameList?.size == null ---> 0
+
         return rootView
     }
 

@@ -68,7 +68,7 @@ class WelcomeFragment : Fragment() {
 //                .setEMAIL("TeaOf1994@Gamil.com")
 //            findNavController().navigate(action)
 
-            val intent = Intent(context,MainActivity::class.java)
+            val intent = Intent(context, MainActivity::class.java)
             context!!.startActivity(intent)
         }
     }

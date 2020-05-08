@@ -4,7 +4,7 @@ ext{
     //App版本名字
     appVersionName = "0.0.1"
     //导航栏
-    navigationVersion = "2.1.0"
+    navigationVersion = "2.2.2"
     //fragment
     fragmentVersion = "1.1.0"
     //lottieVersion
