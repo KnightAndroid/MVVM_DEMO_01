@@ -9,4 +9,8 @@ ext{
     fragmentVersion = "1.1.0"
     //lottieVersion
     lottieVersion = '2.7.0'
+    //lifecycleVersion
+    lifecycleVersion = '2.2.0'
+    //room
+    roomVersion = '2.1.0'
 }

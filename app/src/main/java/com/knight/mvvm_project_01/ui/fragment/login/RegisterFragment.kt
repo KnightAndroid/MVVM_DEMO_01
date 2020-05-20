@@ -26,10 +26,10 @@ class RegisterFragment : Fragment() {
     ): View? {
         var rootView = inflater.inflate(R.layout.register_fragment,container,false)
         et_email = rootView.findViewById(R.id.et_email)
-        //navArgs 这里要指定
-        // kotlinOptions{
-        //    jvmTarget = "1.8"
-        // }
+       // navArgs 这里要指定
+//         kotlinOptions{
+//            jvmTarget = "1.8"
+//         }
         val safeVarargs:RegisterFragmentArgs by navArgs()
         val email = safeVarargs.email
         et_email.setText(email)
