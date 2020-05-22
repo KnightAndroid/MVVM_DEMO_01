@@ -40,7 +40,7 @@ android {
         experimental = true
     }
 
-
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
 
 
 }
@@ -73,4 +73,12 @@ dependencies {
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
     androidTestImplementation "androidx.room:room-testing:$roomVersion"
+
+    //workManager
+    implementation "androidx.work:work-runtime-ktx:$workManagerVersion"
+    //gosn
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+
+
 }

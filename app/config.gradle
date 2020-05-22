@@ -12,5 +12,10 @@ ext{
     //lifecycleVersion
     lifecycleVersion = '2.2.0'
     //room
-    roomVersion = '2.1.0'
+    roomVersion = '2.2.5'
+    //workManger
+    workManagerVersion = "2.3.4"
+
+    //gson
+    gsonVersion = '2.8.2'
 }

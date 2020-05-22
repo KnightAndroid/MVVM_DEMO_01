@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey
  */
 
 @Entity(tableName = "shoe")
-class Shoe (
+data class Shoe (
     @ColumnInfo(name = "shoe_name") val name:String, //鞋子名称
     @ColumnInfo(name = "shoe_description") val description : String,//鞋子具体描述
     @ColumnInfo(name = "shoe_price") val price:Float,//鞋子价格
