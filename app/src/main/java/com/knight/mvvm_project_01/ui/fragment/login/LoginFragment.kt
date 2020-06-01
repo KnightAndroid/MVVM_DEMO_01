@@ -1,14 +1,23 @@
 package com.knight.mvvm_project_01.ui.fragment.login
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.knight.mvvm_project_01.R
+import com.knight.mvvm_project_01.common.BaseConstant
 import com.knight.mvvm_project_01.databinding.LoginFragmentBinding
+import com.knight.mvvm_project_01.ui.activity.MainActivity
+import com.knight.mvvm_project_01.utils.AppPrefsUtils
+import com.knight.mvvm_project_01.viewmodel.CustomViewModelProvider
 import com.knight.mvvm_project_01.viewmodel.LoginModel
 
 //import kotlinx.android.synthetic.main.login_fragment.*
@@ -23,6 +32,15 @@ import com.knight.mvvm_project_01.viewmodel.LoginModel
  */
 class LoginFragment: Fragment() {
 
+
+    private val loginModel:LoginModel by viewModels {
+        CustomViewModelProvider.providerLoginModel(requireContext())
+    }
+
+    private val isEnable : Boolean = false
+
+
+
     lateinit var et_account: EditText
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,10 +48,45 @@ class LoginFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
        val binding : LoginFragmentBinding = DataBindingUtil.inflate(inflater,R.layout.login_fragment,container,false)
-       var loginModel : LoginModel = LoginModel("","",context!!)
-        binding.model = loginModel
-        binding.activity = activity
+        onSubscribeUi(binding)
         return binding.root
+    }
+
+
+
+    private fun onSubscribeUi(binding : LoginFragmentBinding){
+        binding.model = loginModel
+        binding.isEnable = isEnable
+        binding.activity = activity
+
+        binding.btnLogin.setOnClickListener {
+            loginModel.login()?.observe(this, Observer { user ->
+
+                   user?.let {
+                       AppPrefsUtils.putLong(BaseConstant.SP_USER_ID,it.id)
+                       AppPrefsUtils.putString(BaseConstant.SP_USER_NAME,it.account)
+                       val intent  = Intent(context, MainActivity::class.java)
+                       context!!.startActivity(intent)
+                       Toast.makeText(context, "登录成功！", Toast.LENGTH_SHORT).show()
+                   } ?: run{
+                       Toast.makeText(context, "没有此用户", Toast.LENGTH_SHORT).show()
+                   }
+
+
+            })
+        }
+
+        loginModel.p.observe(viewLifecycleOwner, Observer {
+            //保证账号和密码不为空的时候才可以登录
+            binding.isEnable = it.isNotEmpty() && loginModel.n.value!!.isNotEmpty()
+        })
+
+        val name = arguments?.getString(BaseConstant.ARGS_NAME)
+        if(!TextUtils.isEmpty(name)){
+            loginModel.n.value = name!!
+
+        }
+
     }
 
 

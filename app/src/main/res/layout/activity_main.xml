@@ -69,7 +69,24 @@
 <!--        app:menu="@menu/menu_main"-->
 
 <!--        />-->
-    <cn.onestravel.one.navigation.view.OneBottomNavigationBar
+<!--    <cn.onestravel.one.navigation.view.OneBottomNavigationBar-->
+<!--        android:id="@+id/bnv_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:background="@color/white"-->
+<!--        app:oneItemTextColor="@drawable/main_bottom_color_selector"-->
+<!--        app:oneMenu="@menu/menu_main"-->
+<!--        app:oneFloatingEnable="true"-->
+<!--        app:oneFloatingUp="10dp"-->
+<!--        android:paddingTop="5dp"-->
+<!--        android:paddingBottom="5dp"-->
+<!--        app:oneItemTopLineColor="@color/transpant"-->
+
+<!--    >-->
+
+<!--    </cn.onestravel.one.navigation.view.OneBottomNavigationBar>-->
+
+    <cn.onestravel.one.navigation.androidx.OneBottomNavigationBar
         android:id="@+id/bnv_view"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -82,9 +99,13 @@
         android:paddingBottom="5dp"
         app:oneItemTopLineColor="@color/transpant"
 
-    >
+        >
 
-    </cn.onestravel.one.navigation.view.OneBottomNavigationBar>
+    </cn.onestravel.one.navigation.androidx.OneBottomNavigationBar>
+
+
+
+
 
 
 

@@ -17,7 +17,7 @@ import androidx.room.PrimaryKey
 data class User(
      @ColumnInfo(name = "user_account") val account:String,//账号
      @ColumnInfo(name = "user_pwd") val pwd:String,//密码
-     @ColumnInfo(name = "user_name") val name:Float,//账号
+     @ColumnInfo(name = "user_name") val name:String,//账号
      @ColumnInfo(name = "user_url") val headimage:String//头像地址
 
 ) {

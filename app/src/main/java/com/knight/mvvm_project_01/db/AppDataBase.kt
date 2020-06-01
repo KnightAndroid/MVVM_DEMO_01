@@ -7,12 +7,14 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.knight.mvvm_project_01.db.dao.FavouriteShoeDao
 import com.knight.mvvm_project_01.db.dao.ShoeDao
 import com.knight.mvvm_project_01.db.dao.UserDao
 import com.knight.mvvm_project_01.db.data.FavouriteShoe
 import com.knight.mvvm_project_01.db.data.Shoe
 import com.knight.mvvm_project_01.db.data.User
+import com.knight.mvvm_project_01.worker.ShoeWorker
 
 
 /**
@@ -39,10 +41,10 @@ abstract class AppDataBase :RoomDatabase() {
 
         fun getInstance(context: Context):AppDataBase{
             return instance?: synchronized(this){
-                instance?:bui
+                instance?: builDataBase(context).also {
+                    instance = it
+                }
             }
-
-
         }
 
         /**
@@ -56,7 +58,8 @@ abstract class AppDataBase :RoomDatabase() {
                         super.onCreate(db)
 
                         //读取鞋子的集合
-                        val request  = OneTimeWorkRequestBuilder<>()
+                        val request  = OneTimeWorkRequestBuilder<ShoeWorker>().build()
+                        WorkManager.getInstance().enqueue(request)
                     }
 
                 }).build()

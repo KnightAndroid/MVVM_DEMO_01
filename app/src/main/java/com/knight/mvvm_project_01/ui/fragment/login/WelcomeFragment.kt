@@ -1,6 +1,5 @@
 package com.knight.mvvm_project_01.ui.fragment.login
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.knight.mvvm_project_01.R
 import com.knight.mvvm_project_01.common.BaseConstant
-import com.knight.mvvm_project_01.ui.activity.MainActivity
 
 
 /**
@@ -63,13 +61,13 @@ class WelcomeFragment : Fragment() {
 
         //注册事件
         btnRegister.setOnClickListener{
-//            //利用SafeArgs传递参数
-//            val action = WelcomeFragmentDirections.actionWelcomeToRegister()
-//                .setEMAIL("TeaOf1994@Gamil.com")
-//            findNavController().navigate(action)
+            //利用SafeArgs传递参数
+            val action = WelcomeFragmentDirections.actionWelcomeToRegister()
+                .setEMAIL("TeaOf1994@Gamil.com")
+            findNavController().navigate(action)
 
-            val intent = Intent(context, MainActivity::class.java)
-            context!!.startActivity(intent)
+//            val intent = Intent(context, MainActivity::class.java)
+//            context!!.startActivity(intent)
         }
     }
 

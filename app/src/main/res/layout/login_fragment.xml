@@ -73,8 +73,8 @@
             android:drawableStart="@drawable/common_ic_account"
             tools:ignore="MissingConstraints"
             android:drawableLeft="@drawable/common_ic_account"
-            android:text="@{model.n.get()}"
-            android:onTextChanged="@{(text,start,before,count) -> model.onNameChanged(text)}"/>
+            android:text="@{model.n}"
+            app:addTextChangedListener = "@{model.nameWatcher}"/>
 
 <!--        //model::onPwdChanged-->
         <EditText
@@ -84,12 +84,13 @@
             app:layout_constraintBottom_toTopOf="@+id/btn_login"
             android:layout_marginTop="20dp"
             android:hint="password"
-            android:text="@{model.p.get()}"
-            android:onTextChanged="@{(text,start,before,count) -> model.onPwdChanged(text,start,before,count)}"
+            android:text="@{model.p}"
+            android:onTextChanged="@{model::onPwdChanged}"
             android:drawableStart="@drawable/common_ic_pwd"
             android:inputType="textPassword"
             tools:ignore="MissingConstraints"
-            android:drawableLeft="@drawable/common_ic_pwd" />
+            android:drawableLeft="@drawable/common_ic_pwd"
+            />
 
         <Button
             android:id="@+id/btn_login"
@@ -97,10 +98,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.8"
             android:text="Sign in"
-            android:onClick="@{() -> model.login()}"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:enabled="@{(model.p.get().isEmpty() || model.n.get().isEmpty()) ? false : true}"
-            tools:ignore="MissingConstraints"/>
+            android:enabled="@{isEnable}"
+            tools:ignore="MissingConstraints"
+            />
 
 
 

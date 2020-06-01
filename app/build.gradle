@@ -5,7 +5,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 apply from: 'config.gradle'
-
 apply plugin: 'androidx.navigation.safeargs'
 
 apply plugin: 'kotlin-kapt'
@@ -55,7 +54,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
    // implementation 'com.google.android.material:material:1.2.0-alpha01'
-    implementation 'com.github.onestravel:OneBottomNavigationBar:1.1.1'
+    implementation 'com.github.onestravel:OneBottomNavigationBar:1.2.0'
     implementation "com.airbnb.android:lottie:$lottieVersion"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
@@ -78,6 +77,13 @@ dependencies {
     implementation "androidx.work:work-runtime-ktx:$workManagerVersion"
     //gosn
     implementation "com.google.code.gson:gson:$gsonVersion"
+    //分页库
+    implementation "androidx.paging:paging-runtime:$pagingVersion"
+
+    //图像加载库
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    //模糊库
+    implementation "jp.wasabeef:glide-transformations:$trasnVersion"
 
 
 

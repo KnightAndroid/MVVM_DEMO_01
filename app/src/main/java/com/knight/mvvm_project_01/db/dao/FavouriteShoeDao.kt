@@ -25,7 +25,7 @@ interface FavouriteShoeDao {
 
     // 查询单个FavouriteShoe
     @Query("SELECT * FROM fav_shoe WHERE user_id = :userId AND shoe_id = :shoeId")
-    fun findFavouriteShoeByUserIdAndShoeId(userId: String,shoeId:Long):LiveData<FavouriteShoe?>
+    fun findFavouriteShoeByUserIdAndShoeId(userId: Long,shoeId:Long):LiveData<FavouriteShoe?>
 
     //插入单个FavouriteShoe
     @Insert(onConflict = OnConflictStrategy.REPLACE)

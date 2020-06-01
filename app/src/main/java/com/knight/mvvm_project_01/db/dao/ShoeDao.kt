@@ -75,6 +75,22 @@ interface ShoeDao {
     fun findShoeByIdLD(id:Long):LiveData<Shoe>
 
 
+    /**
+     * 通过品牌查询鞋子
+     *
+     *
+     */
+    @Query("SELECT * FROM shoe WHERE shoe_brand IN (:brand)")
+    fun findShoesByBrandLD(brand:Array<String>): androidx.paging.DataSource.Factory<Int,Shoe>
+
+
+
+    //根据收藏集合 查询用户喜欢的鞋集合
+    @Query("SELECT shoe.id,shoe.shoe_name,shoe.shoe_description,shoe.shoe_price,shoe.shoe_brand,shoe.shoe_imgurl " +
+         "FROM shoe " + "INNER JOIN fav_shoe ON fav_shoe.shoe_id = shoe.id WHERE fav_shoe.user_id = :userId")
+    fun findShoesByUserId(userId:Long):LiveData<List<Shoe>>
+
+    
     //配合RxJava通过id查询单款鞋子
     //@Query("SELECT * FROM shoe WHERE id=:id")
     //fun findShoeByIdRx(id:Long):Flowable<Shoe>

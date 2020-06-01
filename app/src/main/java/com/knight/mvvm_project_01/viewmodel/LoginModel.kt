@@ -1,11 +1,12 @@
 package com.knight.mvvm_project_01.viewmodel
 
-import android.content.Context
-import android.content.Intent
-import android.widget.Toast
-import androidx.databinding.ObservableField
-import com.knight.mvvm_project_01.ui.activity.MainActivity
-import java.io.Serializable
+import android.text.Editable
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.knight.mvvm_project_01.common.listener.SimpleWatcher
+import com.knight.mvvm_project_01.db.data.User
+import com.knight.mvvm_project_01.db.repository.UserRepository
 
 
 /**
@@ -14,26 +15,19 @@ import java.io.Serializable
  * @Date 2019/11/11 14:21
  * @descript:
  */
-class LoginModel constructor(name :String,pwd:String,context:Context) : Serializable {
+class LoginModel constructor(private val repository:UserRepository) : ViewModel() {
 
-    companion object {
-        const val serialVersionUID = 1L
-    }
 
     //Observable object,Observable fields,Observalble collections 观察对象 观察字段 观察集合
-    val n = ObservableField<String>(name)
-    val p = ObservableField<String>(pwd)
-    var context: Context = context
-
-
+    val n = MutableLiveData<String>("")
+    val p = MutableLiveData<String>("")
     /**
      *
      * 用户名改变回调的函数
      */
     fun onNameChanged(s:CharSequence){
-        n.set(s.toString())
+        n.value = s.toString()
     }
-
 
     /**
      *
@@ -41,7 +35,7 @@ class LoginModel constructor(name :String,pwd:String,context:Context) : Serializ
      *
      */
     fun onPwdChanged(s:CharSequence,start : Int,before : Int,count : Int){
-        p.set(s.toString())
+        p.value  = s.toString()
     }
 
 
@@ -49,15 +43,38 @@ class LoginModel constructor(name :String,pwd:String,context:Context) : Serializ
      * 登录函数
      *
      */
-    fun login(){
-       if(n.get().equals("knight") && p.get().equals("Aa123456")){
-           Toast.makeText(context, "账号密码正确", Toast.LENGTH_SHORT).show()
-           val intent  = Intent(context,MainActivity::class.java)
-           context.startActivity(intent)
-       } else {
-           Toast.makeText(context,"密码不正确",Toast.LENGTH_LONG).show()
-       }
+//    fun login(){
+//       if(n.get().equals("knight") && p.get().equals("Aa123456")){
+//           Toast.makeText(context, "账号密码正确", Toast.LENGTH_SHORT).show()
+//           val intent  = Intent(context,MainActivity::class.java)
+//           context.startActivity(intent)
+//       } else {
+//           Toast.makeText(context,"密码不正确",Toast.LENGTH_LONG).show()
+//       }
+//    }
+    /**
+     *
+     * 登录函数
+     */
+    fun login(): LiveData<User?>?{
+        val pwd = p.value!!
+        val account = n.value!!
+        return repository.login(account, pwd)
     }
+
+
+    val nameWatcher = object : SimpleWatcher(){
+        override fun afterTextChanged(s: Editable?) {
+            super.afterTextChanged(s)
+
+            n.value = s.toString()
+        }
+    }
+
+
+
+
+
 
 
 

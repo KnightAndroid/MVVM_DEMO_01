@@ -66,6 +66,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_title"
             app:layout_constraintBottom_toTopOf="@+id/et_account"
             android:hint="email address"
+            android:onTextChanged="@{(text, start, before, count)->model.onEmailChanged(text)}"
             android:layout_marginBottom="20dp"
             android:drawableStart="@drawable/register_ic_email"
             app:layout_constraintVertical_chainStyle="packed"
@@ -79,6 +80,7 @@
             app:layout_constraintTop_toBottomOf="@+id/et_email"
             app:layout_constraintBottom_toTopOf="@+id/et_pwd"
             android:hint="account"
+            android:onTextChanged="@{(text, start, before, count)->model.onNameChanged(text)}"
             android:drawableStart="@drawable/common_ic_account"
             tools:ignore="MissingConstraints"
             android:drawableLeft="@drawable/common_ic_account" />
@@ -93,6 +95,7 @@
             android:layout_marginTop="20dp"
             android:inputType="textPassword"
             android:hint="password"
+            android:onTextChanged="@{(text, start, before, count)->model.onPwdChanged(text)}"
             android:drawableStart="@drawable/common_ic_pwd"
             tools:ignore="MissingConstraints"
             android:drawableLeft="@drawable/common_ic_pwd">

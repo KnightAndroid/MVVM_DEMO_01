@@ -18,4 +18,13 @@ ext{
 
     //gson
     gsonVersion = '2.8.2'
+
+    //page 分页库
+    pagingVersion = '2.1.2'
+
+    //glide 图像加载
+    glideVersion = '4.10.0'
+
+    //模糊库
+    trasnVersion = '4.0.1'
 }
