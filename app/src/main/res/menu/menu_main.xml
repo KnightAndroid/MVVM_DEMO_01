@@ -11,7 +11,6 @@
         android:id="@+id/marketFragment"
         android:icon="@drawable/main_ic_favourite_selector"
         android:title="喜欢"
-        app:floating="true"
         />
 
     <item
