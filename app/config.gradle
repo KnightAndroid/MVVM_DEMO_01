@@ -27,4 +27,10 @@ ext{
 
     //模糊库
     trasnVersion = '4.0.1'
+
+    //对话框
+    sweetDialogVersion = '1.5.1'
+
+    //lottie
+    lottieVersion = '2.7.0'
 }

@@ -37,7 +37,8 @@ object BaseConstant {
     // The name of the image manipulation work
     const val IMAGE_MANIPULATION_WORK_NAME = "image_manipulation_work"
     //Other keys
-    const val OUTPUT_PATH = "OUTPUT"
+    const val OUTPUT_PATH = "blur_filter_outputs"
+    const val TAG_OUTPUT = "OUTPUT"
 
     // Name of Notification Channel for verbose notifications of background work
     @JvmField val VERBOSE_NOTIFICATION_CHANNEL_NAME: CharSequence =
